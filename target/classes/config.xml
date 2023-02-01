@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <bean name="address-bean" class="com.spring.setter.injection.setter_injection_example.Address" 
+    p:city="Houston" p:state="Texas" p:country="USA"/>
+
+	<bean name="emp"
+		class="com.spring.setter.injection.setter_injection_example.Employee"
+		p:id="100" p:name="Goliath" p:address-ref="address-bean">
+		<property name="qualifications">
+			<list>
+				<value>bachelors</value>
+				<value>masters</value>
+				<value>phd</value>
+				<null />
+			</list>
+		</property>
+		<property name="ids">
+			<set>
+				<value>1</value>
+				<value>23</value>
+				<value>23</value>
+			</set>
+		</property>
+		<property name="dept">
+			<map>
+				<entry key="100" value="IT" />
+				<entry key="102" value="Support" />
+			</map>
+		</property>
+	</bean>
+	
+</beans>
